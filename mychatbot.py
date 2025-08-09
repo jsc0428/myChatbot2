@@ -38,12 +38,12 @@ if "df_managers" not in st.session_state:
 
 def main():
     st.set_page_config(
-        page_title="AI 챗봇 서비스",
+        page_title="인공지능 모델링 검증 챗봇",
         page_icon="💬",
         layout="wide"
     )
     
-    st.title("🤖 AI 챗봇 서비스")
+    st.title("🤖 인공지능 모델링 검증 챗봇")
     st.markdown("---")
     
     # 안내 메시지
@@ -60,33 +60,17 @@ def main():
         """)
     
     # 서비스 버튼들
-    col1, col2, col3, col4 = st.columns(4)
-    
+    col1, col2 = st.columns(2)
+
     with col1:
-        if st.button("📝 글쓰기 도움", use_container_width=True):
-            st.session_state.messages.append({
-                "role": "user", 
-                "content": "창의적인 글쓰기를 도와주세요. 어떤 주제로 글을 쓸지 추천해주세요."
-            })
-            st.rerun()
-    
-    with col2:
         if st.button("🔍 정보 검색", use_container_width=True):
             st.session_state.messages.append({
                 "role": "user", 
                 "content": "최신 정보나 특정 주제에 대해 알고 싶은 것이 있으면 질문해주세요."
             })
             st.rerun()
-    
-    with col3:
-        if st.button("💡 아이디어 제안", use_container_width=True):
-            st.session_state.messages.append({
-                "role": "user", 
-                "content": "창의적인 아이디어나 해결책을 제안해주세요. 어떤 분야에서 도움이 필요한가요?"
-            })  
-            st.rerun()
-    
-    with col4:
+
+    with col2:
         if st.button("📊 데이터 분석", use_container_width=True):
             if st.session_state.df_managers:
                 st.session_state.messages.append({
